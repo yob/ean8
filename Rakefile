@@ -7,7 +7,7 @@ require 'rake/gempackagetask'
 $LOAD_PATH.unshift File.dirname(__FILE__) + '/lib'
 
 require 'spec'
-require 'ean13'
+require 'ean8'
 
 desc "Default: run specs"
 task :default => :spec
@@ -31,23 +31,21 @@ Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
-PKG_NAME           = "ean13"
-PKG_VERSION        = EAN13::Version::String
+PKG_NAME           = "ean8"
+PKG_VERSION        = EAN8::Version::String
 PKG_FILE_NAME      = "#{PKG_NAME}-#{PKG_VERSION}"
-RUBY_FORGE_PROJECT = "yob-projects"
 
 spec = Gem::Specification.new do |s|
   s.name              = PKG_NAME
   s.version           = PKG_VERSION
-  s.summary           = "a (very) small library for working with EAN-13 codes"
-  s.description       = "a (very) small library for working with EAN-13 codes"
+  s.summary           = "a (very) small library for working with EAN-8 codes"
+  s.description       = "a (very) small library for working with EAN-8 codes"
   s.author            = "James Healy"
   s.email             = "jimmy@deefa.com"
-  s.homepage          = "http://github.com/yob/ean13/tree/master"
+  s.homepage          = "http://github.com/yob/ean8"
   s.has_rdoc          = true
-  s.rdoc_options     << "--title" << "EAN-13" <<
+  s.rdoc_options     << "--title" << "EAN-8" <<
                         "--line-numbers"
-  s.rubyforge_project = RUBY_FORGE_PROJECT
   s.test_files        = FileList["spec/**/*_spec.rb"]
   s.files             = FileList[
     "lib/**/*.rb",
