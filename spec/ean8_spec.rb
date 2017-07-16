@@ -1,36 +1,33 @@
-$LOAD_PATH << File.dirname(__FILE__) + "/../lib"
-
-require 'spec'
 require 'ean8'
 
 describe EAN8 do
   it "should identify a valid EAN8" do
-    EAN8.new("93469647").valid?.should be_true
+    expect(EAN8.new("93469647").valid?).to be_truthy
   end
 
   it "should identify a valid EAN8" do
-    EAN8.valid?("93469647").should be_true
-    EAN8.valid?(93469647).should   be_true
+    expect(EAN8.valid?("93469647")).to be_truthy
+    expect(EAN8.valid?(93469647)).to   be_truthy
   end
 
   it "should identify an invalid EAN8" do
-    EAN8.valid?(nil).should              be_false
-    EAN8.valid?("978184354916").should   be_false
-    EAN8.valid?(Array).should            be_false
-    EAN8.valid?(Array.new).should        be_false
-    EAN8.valid?("93469648").should  be_false
+    expect(EAN8.valid?(nil)).to              be_falsey
+    expect(EAN8.valid?("978184354916")).to   be_falsey
+    expect(EAN8.valid?(Array)).to            be_falsey
+    expect(EAN8.valid?(Array.new)).to        be_falsey
+    expect(EAN8.valid?("93469648")).to  be_falsey
   end
 
   it "should calculate a EAN8 check digit correctly" do
-    EAN8.complete("9346964").should eql("93469647")
-    EAN8.complete(9346964).should   eql("93469647")
+    expect(EAN8.complete("9346964")).to eql("93469647")
+    expect(EAN8.complete(9346964)).to   eql("93469647")
   end
 
   it "should convert to an EAN-13 correctly" do
-    EAN8.new("93469647").to_ean.should eql("0000093469647")
+    expect(EAN8.new("93469647").to_ean).to eql("0000093469647")
   end
 
   it "should convert to a GTIN-14 correctly" do
-    EAN8.new("93469647").to_gtin.should eql("00000093469647")
+    expect(EAN8.new("93469647").to_gtin).to eql("00000093469647")
   end
 end
