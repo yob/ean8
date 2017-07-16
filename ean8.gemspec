@@ -13,7 +13,6 @@ Gem::Specification.new do |s|
   s.files             = Dir.glob("lib/**/*.rb") + [ "MIT-LICENSE", "README.markdown", "CHANGELOG"]
   s.required_ruby_version = ">=1.9.3"
 
-  s.add_dependency("ean13")
   s.add_development_dependency("rake")
   s.add_development_dependency("rspec", "~> 3.0")
 end
