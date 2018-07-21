@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name              = "ean8"
-  s.version           = "1.1.0"
+  s.version           = "1.1.1"
   s.summary           = "a (very) small library for working with EAN-8 codes"
   s.description       = "a (very) small library for working with EAN-8 codes"
   s.license           = "MIT"
