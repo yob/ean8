@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EAN8
 
   class Version #:nodoc:
